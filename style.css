@@ -1,0 +1,86 @@
+body{
+	margin: 0px; border: 0px; padding: 0px;
+	background-color: #444;
+}
+#container{
+	max-width: 600px;
+	margin: auto;
+	width: 90%;
+	height: 600px;
+}
+header{
+	font-family: 'Indie Flower', cursive;
+	color: white;
+	font-size: 60px;
+	text-align: center;
+}
+#clock{
+	height: 300px;
+}
+#time{
+	width: 250px;
+	margin: auto;
+	text-align: center;
+	height: 80px;
+	font-size: 60px;
+	font-family: 'Orbitron', sans-serif;
+	color: white;
+	font-family: cursive;
+	border: 3px white solid;
+	background-color: #2A3132;
+	border-bottom: none;
+}
+#status{
+	width: 250px;
+	margin: auto;
+	height: 30px;
+	color: black;
+	background-color: #2C7873;
+	font-size: 25px;
+	
+	font-family: 'Indie Flower', cursive;
+	text-align: center;
+	border: 3px white solid;
+	border-top: none;
+
+}
+#buttons{
+	width: 250px;
+	margin: auto;
+	height: 30px;
+	font-size: 25px;
+	font-family: 'Indie Flower', cursive;
+	border: 3px white solid;
+	border-top: none;
+}
+.button{
+	float: left;
+	width: 124px;
+	text-align: center;
+	height: 30px;
+	color: white;
+}
+#stop{
+	background-color: #BA5536;
+	border-right: 2px white solid;
+}
+#start{
+	background-color: #80BD9E;
+}
+#settings{
+	width: 256px;
+	margin: auto;
+	height: 30px;
+}
+#set{
+	width: 35px;
+	font-size: 30px;
+	color:white ;
+	border: 3px white solid;
+	border-top: none;
+	text-align: center;
+	background-color: #aaa;
+}
+#set-icon{
+	color: #444;
+}
