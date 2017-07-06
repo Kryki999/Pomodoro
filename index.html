@@ -6,21 +6,42 @@
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<title>Pomodoro Clock</title>
 </head>
 <body>
 <div id="container">
 	<header>Pomodoro Clock</header>
 	<div id="clock">
-		<div id="time">12:38</div>
-		<div id="status">WORK</div>
+		<div id="time">00:00</div>
+		<div id="status">PAUSED</div>
 		<div id="buttons">
-			<div class="button" id="stop"><i class="fa fa-stop" aria-hidden="true"></i></div>
+			<div class="button" id="stop"><i class="fa fa-stop" id="stop-icon" aria-hidden="true"></i></div>
 			<div class="button" id="start"><i class="fa fa-play" aria-hidden="true"></i></div>
 		</div>
 		<div id="settings"><div id="set"><i class="fa fa-cog" aria-hidden="true" id="set-icon"></i></div></div>
+		<div id="menu">
+			<div id="true-menu">
+				<div class="time-set">
+					<div class="time-int" id="workTime">25</div>
+					<div class="plusAndMinus">
+						<div class="cal-buttons plus" id="workPlus">+</div>
+						<div class="cal-buttons" id="workMinus">-</div>	
+					</div>
+					<div class="timer-name">work</div>
+				</div>
+				<div class="time-set">
+					<div class="time-int" id="breakTime">5</div>
+					<div class="plusAndMinus">
+						<div class="cal-buttons plus" id="breakPlus">+</div>
+						<div class="cal-buttons" id="breakMinus">-</div>	
+					</div>
+					<div class="timer-name">break</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<footer></footer>
+	<footer>by KRYKI</footer>
 </div>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
