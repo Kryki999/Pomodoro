@@ -71,39 +71,39 @@ $(document).ready(function(){
 			on = true;	
 			seconds = 0; minutes = 0; visibleMin = 0; visibleSec = 0;
 			
-			for(var i=0;i<5;i++){
-				if(stoped == false){
+			for(var i=0;i<100;i++){
+				if(stoped == false && on == true){
 				seconds = 0; minutes = 0; visibleMin; visibleSec;
 				status.innerHTML = 'WORK';
 				$('#status').css('background', '#78A5A3');
-				while(minutes < workTimeStandard && stoped == false){
+				while(minutes < workTimeStandard && stoped == false && on == true){
 				await sleep(1000);
-				if(stoped == false){
+				if(stoped == false && on == true){
 				seconds++;
 				visibleMin = minutes;
 				visibleSec = seconds;
-				if(seconds == 59){minutes++; seconds=0}
+				if(seconds == 60){minutes++; seconds=0}
 				if(seconds < 10){visibleSec = '0' + seconds}
 				if(minutes < 10){visibleMin = '0' + minutes}
 
 				timer.innerHTML = visibleMin + ':' + visibleSec;
 					}
+				
 				}
 					
-				while(minutes < workTimeStandard && stoped == false);
 				}
-				if(stoped == false){
+				if(stoped == false && on == true){
 				seconds = 0; minutes = 0; visibleMin; visibleSec;
 				status.innerHTML = 'BREAK';
 				$('#status').css('background', '#763626');
-				while(minutes < breakTimeStandard && stoped == false)
+				while(minutes < breakTimeStandard && stoped == false && on == true)
 					{
 				await sleep(1000);
-				if(stoped == false){
+				if(stoped == false && on == true){
 				seconds++;
 				visibleMin = minutes;
 				visibleSec = seconds;
-				if(seconds == 59){minutes++; seconds=0}
+				if(seconds == 60){minutes++; seconds=0}
 				if(seconds < 10){visibleSec = '0' + seconds}
 				if(minutes < 10){visibleMin = '0' + minutes}
 
@@ -117,14 +117,13 @@ $(document).ready(function(){
 		else if(on == true && stoped == false)
 			{
 				console.log('stopowanie');
-				play.innerHTML = '<i class="fa fa-play" aria-hidden="true">';
-				$('#start').css('background', '#80BD9E');
-				statusPom = status.innerHTML;
-				$('#status').css('background', '#E1B16A');
-				status.innerHTML = 'PAUSED';
 				stoped = true;
 				on = false;
-						
+				statusPom = status.innerHTML;
+				status.innerHTML = 'PAUSED';
+				$('#start').css('background','#80BD9E');
+				$('#status').css('background', '#E1B16A');
+				play.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
 			}
 		
 		
@@ -133,27 +132,28 @@ $(document).ready(function(){
 				console.log('wznawianie');
 				stoped = false;
 				on = true;
-				play.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
 				$('#start').css('background', '#E1B16A');
-
+				play.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
 				
+				
+				for(var i=0;i<100;i++){
 				
 				if(statusPom == 'WORK' && stoped == false){status.innerHTML = 'WORK';
 				$('#status').css('background', '#78A5A3');}
 				if(statusPom == 'WORK')
 					{
 						if(minutes == breakTimeStandard){seconds = 0; minutes = 0; visibleMin = 0; visibleSec = 0;}
-						while(minutes < workTimeStandard && stoped == false)
+						while(minutes < workTimeStandard && stoped == false && on == true)
 							{	
 								await sleep(1000);
-								if(stoped == false){
+								if(stoped == false && on == true){
 									seconds++;
 									visibleMin = minutes;
 									visibleSec = seconds;
 									if(seconds == 60){minutes++; seconds=0}
 									if(seconds < 10){visibleSec = '0' + seconds}
 									if(minutes < 10){visibleMin = '0' + minutes}
-
+									
 									timer.innerHTML = visibleMin + ':' + visibleSec;	 
 									console.log('WORK: '+seconds);
 								}
@@ -168,10 +168,10 @@ $(document).ready(function(){
 					{
 						if(minutes == workTimeStandard){seconds = 0; minutes = 0; visibleMin = 0; visibleSec = 0;}
 					
-						while(minutes < breakTimeStandard && stoped == false)
+						while(minutes < breakTimeStandard && stoped == false && on == true)
 							{
 								await sleep(1000);
-								if(stoped == false){
+								if(stoped == false && on == true){
 								seconds++;
 								visibleMin = minutes;
 								visibleSec = seconds;
@@ -186,6 +186,7 @@ $(document).ready(function(){
 						if(minutes == breakTimeStandard){statusPom = 'WORK';}
 					}
 				} 
+			}
 	});
 	
 	$('#stop').click(function(){
@@ -196,5 +197,6 @@ $(document).ready(function(){
 				on = false;
 				play.innerHTML = '<i class="fa fa-play" aria-hidden="true">';
 				$('#start').css('background', '#80BD9E');
+				
 	});
 });
