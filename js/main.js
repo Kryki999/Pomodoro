@@ -138,7 +138,7 @@ $(document).ready(function(){
 				
 				for(var i=0;i<100;i++){
 				
-				if(statusPom == 'WORK' && stoped == false){status.innerHTML = 'WORK';
+				if(statusPom == 'WORK' && stoped == false && on == true){status.innerHTML = 'WORK';
 				$('#status').css('background', '#78A5A3');}
 				if(statusPom == 'WORK')
 					{
@@ -155,7 +155,6 @@ $(document).ready(function(){
 									if(minutes < 10){visibleMin = '0' + minutes}
 									
 									timer.innerHTML = visibleMin + ':' + visibleSec;	 
-									console.log('WORK: '+seconds);
 								}
 							}
 						if(minutes == workTimeStandard)statusPom = 'BREAK';
@@ -180,7 +179,6 @@ $(document).ready(function(){
 								if(minutes < 10){visibleMin = '0' + minutes}
 
 								timer.innerHTML = visibleMin + ':' + visibleSec;
-								console.log('BREAK: '+seconds);
 							}
 							}
 						if(minutes == breakTimeStandard){statusPom = 'WORK';}
